@@ -574,7 +574,7 @@
         </div>
     </section>
 
-    <!-- 3. CATÁLOGO DE PRODUCTOS (FOTOS ORIGINALES MANTENIDAS) -->
+    <!-- 3. CATÁLOGO DE PRODUCTOS -->
     <section id="productos" class="section-padding catalog">
         <div class="container">
             <div class="section-title">
@@ -637,7 +637,7 @@
                 </div>
                 <div class="spec-box">
                     <h3><i class="fa-solid fa-palette"></i> Acabados Disponibles</h3>
-                    <p>Ofrecemos una amplia variedad de terminaciones para adaptarnos a la arquitectura de tu espacio anodizados natural, bronce y negro.</p>
+                    <p>Ofrecemos una amplia variedad de terminaciones para adaptarnos a la arquitectura de tu espacio: anodizados natural, bronce y negro.</p>
                 </div>
             </div>
         </div>
@@ -675,57 +675,56 @@
         </div>
     </section>
 
-    <!-- 5. COTIZADOR INTERACTIVO -->
+    <!-- 5. COTIZADOR INTERACTIVO CON ENVÍO REAL A WHATSAPP -->
     <section id="cotizador" class="section-padding quote-section">
         <div class="container">
             <div class="section-title">
                 <h2>Cotizador Online</h2>
-                <p>Completa las medidas aproximadas y recibe una cotización personalizada.</p>
+                <p>Completa las medidas aproximadas y recibe una cotización personalizada por WhatsApp.</p>
             </div>
             <div class="quote-container">
-                <form id="quoteForm">
+                <form id="quoteForm" onsubmit="sendToWhatsApp(event)">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name">Nombre Completo</label>
-                            <input type="text" id="name" required placeholder="Ej: Maria García">
+                            <input type="text" id="name" required placeholder="Ej: María García">
                         </div>
                         <div class="form-group">
                             <label for="phone">Teléfono / WhatsApp</label>
-                            <input type="tel" id="phone" required placeholder="Ej: +54 9 261 263-1989">
+                            <input type="tel" id="phone" placeholder="Ej: +54 9 261 263-1989">
                         </div>
                         <div class="form-group">
                             <label for="type">Tipo de Abertura</label>
                             <select id="type">
-                                <option value="ventana">Ventana Corrediza</option>
-                                <option value="puerta">Puerta Exterior</option>
-                                <option value="cerramiento">Cerramiento de Galería</option>
-                                <option value="porton">Portón Automático</option>
+                                <option value="Ventana Corrediza">Ventana Corrediza</option>
+                                <option value="Puerta Exterior">Puerta Exterior</option>
+                                <option value="Cerramiento de Galería">Cerramiento de Galería</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="finish">Acabado Deseado</label>
                             <select id="finish">
-                                <option value="anodizado">Anodizado Natural</option>
-                                <option value="bronce">Bronce</option>
-                                <option value="negro">Negro</option>
+                                <option value="Anodizado Natural">Anodizado Natural</option>
+                                <option value="Bronce">Bronce</option>
+                                <option value="Negro">Negro</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="width">Ancho Aproximado (cm)</label>
-                            <input type="number" id="width" placeholder="Ej: 150">
+                            <input type="number" id="width" required placeholder="Ej: 150">
                         </div>
                         <div class="form-group">
                             <label for="height">Alto Aproximado (cm)</label>
-                            <input type="number" id="height" placeholder="Ej: 200">
+                            <input type="number" id="height" required placeholder="Ej: 200">
                         </div>
                         <div class="form-group full-width">
                             <label for="details">Detalles o Comentarios Adicionales</label>
                             <textarea id="details" rows="4" placeholder="Indica si requieres vidrios DVH, colocación o detalles específicos..."></textarea>
                         </div>
                         <div class="form-group full-width">
-                            <a href="https://wa.me/5492612631989?text=Hola,%20quisiera%20consultar%20por%20aberturas%20de%20aluminio%20a%20medida" target="_blank" class="btn btn-primary" style="width: 100%;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
                                 <i class="fa-solid fa-paper-plane"></i> Enviar Solicitud por WhatsApp
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -733,7 +732,7 @@
         </div>
     </section>
 
-    <!-- 6. GALERÍA DE PROYECTOS (FOTOS NUEVAS DE OBRA) -->
+    <!-- 6. GALERÍA DE PROYECTOS -->
     <section id="galeria" class="section-padding">
         <div class="container">
             <div class="section-title">
@@ -825,5 +824,33 @@
             <p>&copy; 2026 Carpintería de Aluminio EYF. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- SCRIPT DE JAVASCRIPT PARA ENVIAR LOS DATOS DE COTIZACIÓN POR WHATSAPP -->
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const type = document.getElementById('type').value;
+            const finish = document.getElementById('finish').value;
+            const width = document.getElementById('width').value;
+            const height = document.getElementById('height').value;
+            const details = document.getElementById('details').value;
+
+            let message = `Hola! Quisiera solicitar una cotización con los siguientes datos:\n\n`;
+            message += `*Nombre:* ${name}\n`;
+            if (phone) message += `*Teléfono:* ${phone}\n`;
+            message += `*Tipo de Abertura:* ${type}\n`;
+            message += `*Acabado:* ${finish}\n`;
+            message += `*Medidas:* ${width} cm (Ancho) x ${height} cm (Alto)\n`;
+            if (details) message += `*Detalles adicionales:* ${details}\n`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/5492612631989?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
 </body>
 </html>
