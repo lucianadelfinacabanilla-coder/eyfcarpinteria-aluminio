@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpintería de Aluminio EYF | Aberturas de Alta Prestación</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS RESET & VARIABLES */
+        :root {
+            --primary: #0F172A;
+            --primary-light: #1E293B;
+            --accent: #2563EB;
+            --accent-hover: #1D4ED8;
+            --whatsapp: #25D366;
+            --whatsapp-hover: #1EBE5D;
+            --bg-light: #F8FAFC;
+            --text-dark: #334155;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --white: #FFFFFF;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section-padding {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.25rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: var(--white);
+        }
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-hover);
+        }
+        .btn-outline {
+            border: 2px solid var(--border-color);
+            background: transparent;
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        /* HEADER / NAVBAR */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo i {
+            color: var(--accent);
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: var(--white);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #94A3B8;
+            margin-bottom: 35px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            object-fit: cover;
+        }
+        /* CATALOG SECTION */
+        .catalog {
+            background-color: var(--bg-light);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .product-img {
+            height: 240px;
+            background-color: #CBD5E1;
+            overflow: hidden;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 24px;
+        }
+        .product-info h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .product-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .product-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background-color: #EFF6FF;
+            color: var(--accent);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        /* SPECS & FINISHES */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .spec-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+        .spec-box h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .spec-box h3 i {
+            color: var(--accent);
+        }
+        /* ADVANTAGES SECTION */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+        .advantage-card {
+            text-align: center;
+            padding: 35px 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .advantage-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+        .advantage-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #EFF6FF;
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+        }
+        .advantage-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .advantage-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        /* QUOTE FORM SECTION */
+        .quote-section {
+            background-color: var(--bg-light);
+        }
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        .form-group label {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        /* GALLERY SECTION */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            height: 280px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background-color: #CBD5E1;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--white);
+            font-weight: 600;
+            text-align: center;
+            padding: 15px;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        /* CONTACT & FOOTER */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            background: var(--white);
+            padding: 35px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .contact-item i {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-top: 4px;
+        }
+        .contact-item h4 {
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .contact-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--primary-light);
+        }
+        .footer-about p {
+            color: #94A3B8;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            max-width: 350px;
+        }
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-links a {
+            color: #94A3B8;
+            transition: var(--transition);
+        }
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+        .social-icon:hover {
+            background-color: var(--accent);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            color: #64748B;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 992px) {
+            .hero-grid, .specs-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.25rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .quote-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. ENCABEZADO / NAVEGACIÓN -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-border-all"></i>
+                Carpintería de Aluminio EYF
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#productos" class="nav-link">Productos</a></li>
+                    <li><a href="#ventajas" class="nav-link">Ventajas</a></li>
+                    <li><a href="#cotizador" class="nav-link">Cotizador</a></li>
+                    <li><a href="#galeria" class="nav-link">Galería</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="nav-cta">
+                <a href="https://wa.me/5492612631989?text=Hola,%20quisiera%20consultar%20por%20aberturas%20de%20aluminio%20a%20medida" target="_blank" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <div class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. SECCIÓN PRINCIPAL (HERO) -->
+    <section id="inicio" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Aberturas de Aluminio: Elegancia, Resistencia y Aislamiento</h1>
+                <p>Diseñamos y fabricamos carpintería de aluminio de alta gama para proyectos residenciales y comerciales. Innovación y durabilidad garantizada.</p>
+                <div class="hero-actions">
+                    <a href="#cotizador" class="btn btn-primary">Solicitar Cotización</a>
+                    <a href="#productos" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.3);">Ver Catálogo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="IMG_20250909_122718816_HDR - copia.jpg" alt="Aberturas de Aluminio Instaladas en Obra Real">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CATÁLOGO DE PRODUCTOS (FOTOS ORIGINALES MANTENIDAS) -->
+    <section id="productos" class="section-padding catalog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestras Líneas de Productos</h2>
+                <p>Soluciones a medida fabricadas con perfiles de máxima precisión y calidad.</p>
+            </div>
+            <div class="product-grid">
+                <!-- Producto 1: Ventanales Corredizos -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="36764.jpg" alt="Ventanales Corredizos de Aluminio de Gran Tamaño en Obra">
+                    </div>
+                    <div class="product-info">
+                        <h3>Ventanales Corredizos de Gran Tamaño</h3>
+                        <p>Grandes paños de vidrio corredizos con perfilería de alta prestación. Ideales para conectar interiores con galerías o terrazas sin obstaculizar la vista.</p>
+                        <div class="product-tags">
+                            <span class="tag">Línea A30 New</span>
+                            <span class="tag">Vidrio DVH</span>
+                            <span class="tag">Cierre Multipunto</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 2: Ventanas Modernas -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="36763.jpg" alt="Ventana Moderna de Aluminio de Diseño Minimalista">
+                    </div>
+                    <div class="product-info">
+                        <h3>Ventanas Modernas y Módulos Fijos</h3>
+                        <p>Aberturas de perfilería fina y estilizada con máxima hermeticidad. Diseño limpio e integración arquitectónica contemporánea.</p>
+                        <div class="product-tags">
+                            <span class="tag">Línea Módena</span>
+                            <span class="tag">Minimalista</span>
+                            <span class="tag">Aislamiento Térmico</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 3: Puertas de Ingreso -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="36799.jpg" alt="Puerta de Ingreso y Cerramientos Integrales en Vidrio y Aluminio">
+                    </div>
+                    <div class="product-info">
+                        <h3>Puertas de Ingreso y Cerramientos Integrales</h3>
+                        <p>Sistemas integrados de gran altura y amplitud para ingresos principales o cerramientos completos de galerías con máxima visibilidad.</p>
+                        <div class="product-tags">
+                            <span class="tag">Puertas Principales</span>
+                            <span class="tag">Seguridad DVH</span>
+                            <span class="tag">Grandes Luces</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIDRIOS Y ACABADOS -->
+            <div class="specs-grid">
+                <div class="spec-box">
+                    <h3><i class="fa-solid fa-layer-group"></i> Tecnología DVH (Doble Vidriado)</h3>
+                    <p>Utilizamos sistemas de Doble Vidriado Hermético (DVH) con cámara de aire deshidratado, garantizando un aislamiento térmico y acústico superior que reduce notablemente el consumo energético.</p>
+                </div>
+                <div class="spec-box">
+                    <h3><i class="fa-solid fa-palette"></i> Acabados Disponibles</h3>
+                    <p>Ofrecemos una amplia variedad de terminaciones para adaptarnos a la arquitectura de tu espacio anodizados natural, bronce y negro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. VENTAJAS DEL ALUMINIO -->
+    <section id="ventajas" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por qué Elegir Aluminio?</h2>
+                <p>El material por excelencia para la arquitectura contemporánea.</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Alta Resistencia</h3>
+                    <p>No se corroe, se deforma ni se deteriora ante inclemencias climáticas severas.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
+                    <h3>Aislamiento Térmico</h3>
+                    <p>Perfiles con RPT (Ruptura de Puente Térmico) para optimizar la eficiencia energética.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Bajo Mantenimiento</h3>
+                    <p>Superficie no porosa de fácil limpieza que no requiere repintado constante.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                    <h3>Diseño Moderno</h3>
+                    <p>Perfiles delgados que maximizan la entrada de luz natural en cualquier espacio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. COTIZADOR INTERACTIVO -->
+    <section id="cotizador" class="section-padding quote-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cotizador Online</h2>
+                <p>Completa las medidas aproximadas y recibe una cotización personalizada.</p>
+            </div>
+            <div class="quote-container">
+                <form id="quoteForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" required placeholder="Ej: Maria García">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono / WhatsApp</label>
+                            <input type="tel" id="phone" required placeholder="Ej: +54 9 261 263-1989">
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Tipo de Abertura</label>
+                            <select id="type">
+                                <option value="ventana">Ventana Corrediza</option>
+                                <option value="puerta">Puerta Exterior</option>
+                                <option value="cerramiento">Cerramiento de Galería</option>
+                                <option value="porton">Portón Automático</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="finish">Acabado Deseado</label>
+                            <select id="finish">
+                                <option value="anodizado">Anodizado Natural</option>
+                                <option value="bronce">Bronce</option>
+                                <option value="negro">Negro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="width">Ancho Aproximado (cm)</label>
+                            <input type="number" id="width" placeholder="Ej: 150">
+                        </div>
+                        <div class="form-group">
+                            <label for="height">Alto Aproximado (cm)</label>
+                            <input type="number" id="height" placeholder="Ej: 200">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="details">Detalles o Comentarios Adicionales</label>
+                            <textarea id="details" rows="4" placeholder="Indica si requieres vidrios DVH, colocación o detalles específicos..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <a href="https://wa.me/5492612631989?text=Hola,%20quisiera%20consultar%20por%20aberturas%20de%20aluminio%20a%20medida" target="_blank" class="btn btn-primary" style="width: 100%;">
+                                <i class="fa-solid fa-paper-plane"></i> Enviar Solicitud por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. GALERÍA DE PROYECTOS (FOTOS NUEVAS DE OBRA) -->
+    <section id="galeria" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galería de Proyectos</h2>
+                <p>Ejemplos de instalaciones reales de nuestras obras.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="IMG-20260425-WA0023.jpg" alt="Instalación de Puerta y Ventana en Aluminio Negro">
+                    <div class="gallery-overlay">Instalación Residencial - Aluminio Negro</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_20251105_120130586_HDR.jpg" alt="Montaje Técnico de Ventanales de Gran Porte">
+                    <div class="gallery-overlay">Montaje e Instalación de Gran Altura</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_20250827_111521938_MFNR.jpg" alt="Aberturas de Aluminio en Esquina con Salida a Jardín">
+                    <div class="gallery-overlay">Encuentros en Esquina y Salidas a Galería</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CONTACTO Y FOOTER -->
+    <section id="contacto" class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contacto</h2>
+                <p>Comunícate con nosotros para cotizaciones e información general.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Horarios de Atención</h4>
+                            <p>Lunes a viernes: de 08:00 a 20:00 h.<br>Sábados: de 09:00 a 17:00 h.<br>Domingos: cerrado.</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Correo Electrónico</h4>
+                            <p><a href="mailto:consultaseyf@gmail.com" style="color: inherit;">consultaseyf@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>Teléfono / WhatsApp</h4>
+                            <p><a href="https://wa.me/5492612631989?text=Hola,%20quisiera%20consultar%20por%20aberturas%20de%20aluminio%20a%20medida" target="_blank" style="color: inherit;">+54 261 263-1989</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <a href="#" class="logo" style="color: white;">
+                    <i class="fa-solid fa-border-all"></i> Carpintería de Aluminio EYF
+                </a>
+                <p>Especialistas en la fabricación e instalación de sistemas de carpintería de aluminio de alta tecnología para la construcción.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/5492612631989?text=Hola,%20quisiera%20consultar%20por%20aberturas%20de%20aluminio%20a%20medida" target="_blank" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#ventajas">Ventajas</a></li>
+                    <li><a href="#cotizador">Cotizador</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contacto Directo</h4>
+                <ul>
+                    <li><a href="mailto:consultaseyf@gmail.com">consultaseyf@gmail.com</a></li>
+                    <li><a href="https://wa.me/5492612631989?text=Hola,%20quisiera%20consultar%20por%20aberturas%20de%20aluminio%20a%20medida" target="_blank">+54 261 263-1989</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Carpintería de Aluminio EYF. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
